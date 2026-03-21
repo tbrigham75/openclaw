@@ -4,6 +4,9 @@ Place the skills folder into ~/.openclaw/workspace/skills/[Skill Folder]
 
 Run openclaw doctor to scan skills:
     - openclaw doctor
+    - openclaw doctor --fix
+    - openclaw gateway restart
+    - openclaw skills list - Your skill should be listed
 
 Test: 
     - Ask agent to "config set agents.defaults.model.primary 'new-model'" ​
