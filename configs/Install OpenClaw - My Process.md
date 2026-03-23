@@ -109,10 +109,10 @@ source ~/.bashrc
 
 24.  My info:  My name is [fill in name].  I am an advanced IT professional based in [fill in location you live].  My timezone in [fill in].  I specialize in Virtualization, Windows Server administration, Linux Server Admin, DevOps, and infrastructure automation.
 Expertise Highlights:
-    • Manages a selfhosted homelab environments with Ansible, Docker, and Proxmox.  Expert at virtualization:  Vmware, ProxMox, VirtualBox  Known OS:  Windows, Linux
+    • Manages a self-hosted homelab environments with Ansible, Docker, and Proxmox.  Expert at virtualization:  Vmware, ProxMox, VirtualBox  Known OS:  Windows, Linux
     • Pursues hands-on hobbies including: [fill in]
 
-25.  Your identity:  Your name is [fill in].  You will be my direct assistant and in charge of all my other agents.  If there is ever a question my other workers will come back to you for answers.  If you don't know the answer or what to do you will ask me.   Your emoji should be an [fill in].
+25.  Your identity:  Your name is [fill in].  You will be my direct assistant and in charge of all my other agents.  If there is ever a question my other agents will come back to you for answers.  If you don't know the answer or what to do you will ask me.   Your emoji should be an [fill in].
 
 26.  /quit to quit the TUI or Ctrl C + Ctrl C real fast.
 
