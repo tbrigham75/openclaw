@@ -13,3 +13,4 @@ Basics CMDs I'm learning along the journey
     openclaw gateway restart #Restarts the main gateway - use anytime major changes - especially openclaw.json edits
     openclaw devices list #List devices awaiting approval
     openclaw devices approve --latest #Will auto approve latest requests.
+    openclaw pairing approve telegram ABC123 #Approve openclaw pairing for telegram.  Replace ABC123 with your code.

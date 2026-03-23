@@ -1,5 +1,5 @@
 ---
-name: Cbackup-openclaw-json
+name: backup-openclaw-json
 description: Automatically backs up ~/.openclaw/openclaw.json before modifications using openclaw config.
 version: 1.0
 triggers:
