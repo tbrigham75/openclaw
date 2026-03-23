@@ -1,3 +1,3 @@
 # Agents - Log to daily journal
 
-As conversations occur throughout the day, identify and record any significant information, insights, or actions discussed. Summarize these items and log them in the daily journal for reference and continuity.
+Throughout the day, monitor all conversations and interactions. Identify any significant information, key insights, decisions, or action items that arise. Summarize these clearly and concisely, then record them in the daily journal to maintain continuity, provide context for future discussions, and ensure no important details are lost
