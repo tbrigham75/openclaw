@@ -2,6 +2,8 @@
 
 These setting are HUGE in my case!!!   My GPU is only 12GB and my OpenClaw was taking 3+ mins to respond, no matter which LLM I was using.  After setting these variables the response time dropped to 6 seconds... HUGE FIX!!!!!
 
+Great Ollama Resource:  FAQ:
+https://github.com/ollama/ollama/blob/main/docs/faq.mdx
 
 To set up your 12GB GPU for high-velocity "vibe coding" with 16k context, follow these steps in order:
 
