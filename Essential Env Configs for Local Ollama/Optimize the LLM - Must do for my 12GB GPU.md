@@ -6,23 +6,25 @@ To keep the speed of the 4k model but satisfy the 16k requirement, we need to us
 
 1.  Rebuild with the "Fast 16k" Modelfile
 
-    Run this to create a model that reserves the 16k space but uses refined parameters for your scripts.
-        Bash:
+Run this to create a model that reserves the 16k space but uses refined parameters for your scripts.
+Bash:
 
-        ollama stop qwen-opus-4k
-        cat <<EOF > opus-16k.modelfile
-        FROM sorc/qwen3.5-claude-4.6-opus-q4:latest
-        PARAMETER num_ctx 16384
-        PARAMETER num_predict 1024
-        PARAMETER repeat_penalty 1.1
-        PARAMETER top_k 40
-        PARAMETER top_p 0.9
-        EOF
-        ollama create qwen-opus-16k -f opus-16k.modelfile
+ollama stop qwen-opus-16k #Fill in whatever model name u were running
+
+cat <<EOF > opus-16k.modelfile
+FROM sorc/qwen3.5-claude-4.6-opus-q4:latest
+PARAMETER num_ctx 16384
+PARAMETER num_predict 2040
+PARAMETER repeat_penalty 1.1
+PARAMETER top_k 40
+PARAMETER top_p 0.9
+EOF
+
+ollama create qwen-opus-16k -f opus-16k.modelfile
 
 2.  Put this in openclaw.json file under the model array:
     JSON:
-            {
+          {
             "id": "qwen-opus-16k",
             "name": "Qwen Opus",
             "reasoning": false,
@@ -32,7 +34,10 @@ To keep the speed of the 4k model but satisfy the 16k requirement, we need to us
               "output": 0,
               "cacheRead": 0,
               "cacheWrite": 0
-            }
+          },
+          "contextWindow": 16384,
+          "maxTokens": 2040
+          },
 
     AND under agents array:
             "primary": "ollama/qwen-opus-16k"
@@ -71,7 +76,7 @@ To keep the speed of the 4k model but satisfy the 16k requirement, we need to us
         • Ask your AI to give you a status of everything you have discussed today
 
     • Results you are looking for:
-        • Better timing in seconds from 36s to 4s in my case. 
+        • Better timing in seconds from 36s - 1 min (Just saying Hi) to 15s in my case for asking for status where it reads through all that happened over 12 hour period. 
         • You are looking that the GPU is between 95% - 100% [2nd block down on right below the CUDA Version]
         • Another thing you are watching is the power usage spikes 138W / 250W below.  Not sure what you are looking for still learning this part.
         
