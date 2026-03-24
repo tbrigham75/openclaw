@@ -1,6 +1,7 @@
 # The OpenClaw “Vibe Armor” Rig (2026 Edition)
 
-This configuration creates a **Hybrid Intelligence** setup on your Ryzen 7 VM. It uses local hardware via **Ollama** to handle the “heavy lifting” of reading and indexing your files for free, while rotating through multiple **Google Gemini API keys** to give you a combined **3,000+ daily request budget** for high‑speed coding.
+This configuration creates a **Hybrid Intelligence** setup on your OpenClaw. It uses local hardware via **Ollama** to handle the “heavy lifting” of reading and indexing your files for free, while rotating through multiple **Google Gemini API keys** to give you a combined **10,000 daily request budget** for high‑speed coding.
+You can also use less than 10... depending on what you require.
 
 > **Note:**  
 > You can add up to **10 API keys** on the free tier.  
@@ -61,7 +62,8 @@ To build your “Armor” for vibe coding, create independent projects in **Goog
 
    # Pull the "Shield" (Free local file indexing)
    ollama pull nomic-embed-text
-
+   # Pulll the "Work Horse" (Local LLM for pretty much all work since my 12GB GPU is limited)
+   ollama pull sorc/qwen3.5-claude-4.6-opus-q4:latest  # Note read Optimize the LLM - Must do for my 12GB GPU.md to make model smaller for use.
    # Pull the "Safety Net" (Local LLM for offline work)
    ollama pull llama3.2:3b
 
@@ -74,16 +76,33 @@ To build your “Armor” for vibe coding, create independent projects in **Goog
     Add New API Keys
     Bash
 
-    # Repeat this for each key (e.g., key2, key3, key4).  Note you have already setup key 1 in onboarding.
-    openclaw models auth add --profile google:key3
+    # Repeat this for each key (e.g.,key1, key2, key3, ...)
+    openclaw models auth add
 
-    # Configure Rotation Order - This command tells the system to start with your default key and automatically jump to the next ones in the list as needed.  
-    openclaw config set auth.order.google '["google:default", "key2", "key3"]' --json
+      ◇  Token provider
+          custom (type provider id)
+
+      ◇  Provider id
+         google
+    
+      ◇  Profile id
+         google:key1
+ 
+      ◇  Does this token expire?
+          No
+      ◇  Paste token for google
+          [Your Token Here]
+
+    # Configure Rotation Order - This command tells the system to automatically jump to the next keys in the list as needed.  
+    openclaw config set auth.order.google '["google:key1","google:key2","google:key3","google:key4","google:key5","google:key6","google:key7","google:key8","google:key9"]' --json
+
+    # Restart gateway
+    openclaw gateway restart
 
     # Verify Key Health - Run a "probe" to ensure your rotation is active and the keys are authenticated correctly.
     openclaw models status --probe --probe-provider google
 
-5. Hybrid Configuration (config.yaml)
+5. Hybrid Configuration (config.yaml).  Your call on this I went the other way.  Primary is ollama and will use google for agent tasks
 
    - This is the logic that connects your hardware to the cloud. It designates Gemini as the "Brain" and Ollama as the "Memory Search."
    
@@ -95,7 +114,7 @@ To build your “Armor” for vibe coding, create independent projects in **Goog
         google:
           apiKey: "google:default" 
         ollama:
-          baseUrl: "[http://127.0.0.1:11434](http://127.0.0.1:11434)" # Put IP to your Ollama server here
+          baseUrl: "[http://127.0.0.1:11434])" # Put IP to your Ollama server here
 
     agents:
       defaults:
@@ -113,7 +132,7 @@ To build your “Armor” for vibe coding, create independent projects in **Goog
   Task	                      Command
    Pull ollama llms           ollama pull llama3.2:3b
    Check Local Status         ollama list
-   Add New API Key            openclaw models auth add --profile google:key4
-   Update Key Rotation        openclaw config set auth.order.google '["google:default", "key2", "key3", "key4"]' --json
+   Add New API Key            openclaw models auth add
+   Update Key Rotation        openclaw config set auth.order.google '["google:key1", "key2", "key3", "key4"]' --json
    Verify API Key Health      openclaw models status --probe --probe-provider google
    Refresh Gateway            openclaw gateway restart
