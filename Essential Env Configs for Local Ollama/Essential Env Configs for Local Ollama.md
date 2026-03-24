@@ -21,7 +21,7 @@ Ini, TOML
 [Service]
 Environment="OLLAMA_NUM_GPU=1"
 Environment="OLLAMA_FLASH_ATTENTION=1"
-Environment="OLLAMA_KV_CACHE_TYPE=q8_0"
+Environment="OLLAMA_KV_CACHE_TYPE=q4_0"     # My 12GB card needs q4_0 for fast responses.  Yours might be:  Environment="OLLAMA_KV_CACHE_TYPE=q8_0"
 Environment="OLLAMA_NUM_CTX=16384"
 Environment="OLLAMA_MAX_LOADED_MODELS=2"
 Environment="OLLAMA_NUM_PARALLEL=2"
