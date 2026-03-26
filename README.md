@@ -6,7 +6,7 @@ This repo is a central hub for all things OpenClaw — discoveries, guides, note
 As I explore new features, create tutorials, or document processes, I’ll add them here to keep everything in one accessible place.
 Contents
 
-    Tips, guides, cmds, configs, prompts, skills, and walkthroughs
+    agents, cmds, configs, core-md-files, discoveries, Essential Env Configs for Local Ollama, prompts, and skills
 
     Experiments and findings
 
