@@ -113,11 +113,11 @@ You now have 3 apps, each with its own bot token.
 
 In your openclaw.json, under channels.discord, you want roughly this pattern:
 
-NOTE:  I pulled this json from another AI... openclaw told me this:  I see the issue. The OpenClaw config schema expects a specific structure for Discord guilds and channels, and it doesn't allow additional properties like friendlyName, categories, or the nested allowedAgents arrays I included. Let me check the existing structure and apply only what's compatible.
+NOTE - for below:  I pulled this json from another AI... openclaw told me this:  I see the issue. The OpenClaw config schema expects a specific structure for Discord guilds and channels, and it doesn't allow additional properties like friendlyName, categories, or the nested allowedAgents arrays I included. Let me check the existing structure and apply only what's compatible. If you have a smart LLM it should be albe to figure it out
 
-If you have a smart LLM it should be albe to figure it out
+Prompt if you get your agent to do it: 
 
-Prompt if you get your agent to do it: I want you to update your openclaw.json file.  We are modifying discord channels and agents access.  I want you to merge this into the existing json without breaking things.  Stop and think before applying.  Here is the info in json format:
+I want you to update your openclaw.json file.  We are modifying discord channels and agents access.  I want you to merge this into the existing json without breaking things.  Stop and think before applying.  I'm also not sure if all the fields are correct so do a check and see.  If nothing else pull the info from below and modify the openclaw.json file yourself.  Here is the info in json format:
 
 json
 "channels": {
