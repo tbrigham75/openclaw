@@ -53,6 +53,7 @@ Here’s a concise, step‑by‑step setup for what you want:
         tester_bot_token = ...
 
 You now have 3 apps, each with its own bot token.
+
 2. Invite each bot to your server
 
     For each bot:
@@ -75,6 +76,12 @@ You now have 3 apps, each with its own bot token.
                 Send Messages in Threads
                 Manage Threads
                 Read Message History
+            
+            For Main agent:
+                
+                Give all the above
+                Manage Channels
+                Mention Everyone
 
         Copy the generated URL and open it in your browser.
 
@@ -108,71 +115,13 @@ You now have 3 apps, each with its own bot token.
     Repeat for any other project channels you want coder/tester to live in.
 
 (The main orchestrator can either be in those channels or just in your main HQ channel; your choice.)
+ 
+ OR
 
-4. Configure OpenClaw for multiple bots
+ Prompt to get the main orchestrator to set it up (if you setup permissions correctly):
+    I want to build out direct agent line channels.  Please do so.
 
-In your openclaw.json, under channels.discord, you want roughly this pattern:
-
-NOTE - for below:  I pulled this json from another AI... openclaw told me this:  I see the issue. The OpenClaw config schema expects a specific structure for Discord guilds and channels, and it doesn't allow additional properties like friendlyName, categories, or the nested allowedAgents arrays I included. Let me check the existing structure and apply only what's compatible. If you have a smart LLM it should be albe to figure it out
-
-Prompt if you get your agent to do it: 
-
-I want you to update your openclaw.json file.  We are modifying discord channels and agents access.  I want you to merge this into the existing json without breaking things.  Stop and think before applying.  I'm also not sure if all the fields are correct so do a check and see.  If nothing else pull the info from below and modify the openclaw.json file yourself.  Here is the info in json format:
-
-json
-"channels": {
-  "discord": {
-    "guilds": {
-      "YOUR_GUILD_ID": {
-        "friendlyName": "OpenClaw",
-        "categories": {
-          "projects": {
-            "id": "Right-Click Text Channels_CATEGORY_ID",
-            "allowedAgents": ["agent/coder", "agent/tester"]
-          }
-        },
-        "channels": {
-          "YOUR_MAIN_CHANNEL_ID": {
-            "allowedAgents": ["agent/main"],
-            "requireMention": false
-          },
-          "YOUR_PROJECT_CHANNEL_ID": {
-            "allowedAgents": ["agent/coder", "agent/tester"],
-            "requireMention": false
-          }
-        }
-      }
-    },
-    "accounts": {
-      "main": {
-        "name": "main",
-        "token": "YOUR_MAIN_BOT_TOKEN_HERE"
-      },
-      "coding": {
-        "name": "coding",
-        "token": "YOUR_CODER_BOT_TOKEN_HERE"
-      },
-      "testing": {
-        "name": "testing",
-        "token": "YOUR_TESTER_BOT_TOKEN_HERE"
-      }
-    }
-  }
-}
-
-Where:
-
-    YOUR_GUILD_ID = your server’s numeric ID (right‑click server → Copy ID with Dev Mode).
-
-    YOUR_MAIN_CHANNEL_ID = your main command channel.
-
-    YOUR_PROJECT_CHANNEL_ID = your project channel.
-
-    agent/main, agent/coder, agent/tester = the actual agent IDs you defined in your agents list (or workspace files).
-
-Reload or restart OpenClaw after saving.
-
-5. Update your agent definitions (concept)
+4. Update your agent definitions (concept)
 
 In your agent setup (e.g., in agents.json or workspace files):
 
@@ -204,7 +153,7 @@ You can also design a small “project channel” tool:
 
         Then OpenClaw is informed via allowedAgents: ["agent/coder", "agent/tester"] for that channel.
 
-6. Test the flow
+5. Test the flow
 
     Talk to your main agent in #main.
 
