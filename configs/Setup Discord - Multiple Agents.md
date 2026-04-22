@@ -113,6 +113,8 @@ You now have 3 apps, each with its own bot token.
 
 In your openclaw.json, under channels.discord, you want roughly this pattern:
 
+Prompt if you get your agent to do it: I want you to update your openclaw.json file.  We are modifying discord channels and agents access.  I want you to merge this into the existing json without breaking things.  Stop and think before applying.  Here is the info in json format:
+
 json
 "channels": {
   "discord": {
