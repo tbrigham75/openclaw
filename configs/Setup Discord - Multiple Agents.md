@@ -119,7 +119,7 @@ You now have 3 apps, each with its own bot token.
  OR
 
  Prompt to get the main orchestrator to set it up (if you setup permissions correctly):
-    I want to build out direct agent line channels.  Please do so.
+    I want to build out direct agent line channels in discord.  Can you set this up for Simon, Betty, and Elise.
 
 4. Update your agent definitions (concept)
 
