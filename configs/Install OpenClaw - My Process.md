@@ -144,7 +144,7 @@ Expertise Highlights:
 	openclaw dashboard --no-open
 
 30.  Open web browser with the token and click connect.  Example:
-	http://192.168.2.170:18789/#token=PutGatewayTokenHere
+	http://192.168.1.123:18789/#token=PutGatewayTokenHere
 	NOTE:  (Above)Ensure "allowedOrigins": is set to correct URL
 
 31.  openclaw devices list
